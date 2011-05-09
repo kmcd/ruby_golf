@@ -4,6 +4,10 @@ class Golf
     s.split(' ').sort { |a,b| a[1] <=> b[1] }.join ' '
   end
   
+  def self.hole3(n)
+    n == 1 ? 1 : n*hole3(n-1)
+  end
+  
   def self.hole7(ints)
     ranges = []
     ints.each do |int|
@@ -29,4 +33,5 @@ class Golf
       end
     end
   end
+  
 end
