@@ -10,7 +10,7 @@ class Golf
     (1..n).inject :*
   end
   
-  def self.hole4(a)
+  def self.hole4 a
     a.map do |e|
       case e
         when /man\((\w+)\)/   : "hat(man(#{$1}))"
