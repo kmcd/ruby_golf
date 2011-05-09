@@ -11,18 +11,18 @@ class Golf
   end
   
   def self.hole4 a
-    a.map do |e|
+    a.map { |e|
       case e
         when /man\((\w+)\)/   : "hat(man(#{$1}))"
         when /dog\((\w+)\)/   : "dog(#{$1}(bone))"
         when /cat\((\w+)\)/   : "dead(#{$1})"
       end
-    end
+    }
   end
   
   def self.hole7(ints)
     ranges = []
-    ints.each do |int|
+    ints.each { |int|
       found = false
       ranges = ranges.map do |range|
         if int == range.begin - 1
@@ -34,7 +34,7 @@ class Golf
         else
           range
         end
-      end
+      }
       ranges << (int..int) unless found
     end
     ranges.map {|range|range.begin == range.end ? range.begin.to_s : "#{range.begin}-#{range.end}"}
