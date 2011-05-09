@@ -3,7 +3,7 @@ class Golf
     a.reduce 1,:*
   end
   def self.hole2 s
-    s.split(' ').sort { |a,b| a[1] <=> b[1] }.join ' '
+    s.split(' ').sort_by { |a| a[1] }.join ' '
   end
 
   def self.hole3(n)
