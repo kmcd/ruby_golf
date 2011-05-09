@@ -6,8 +6,8 @@ class Golf
     s.split(' ').sort_by { |a| a[1] }.join ' '
   end
 
-  def self.hole3(n)
-    n == 1 ? 1 : n*hole3(n-1)
+  def self.hole3 n
+    (1..n).inject :*
   end
   
   def self.hole4(a)
