@@ -7,7 +7,7 @@ class Golf
     n == 1 ? 1 : n*hole3(n-1)
   end
   
-  def self.hole4(a)
+  def self.hole4 a
     a.map do |e|
       case e
         when /man\((\w+)\)/   : "hat(man(#{$1}))"
