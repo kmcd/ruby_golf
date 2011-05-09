@@ -46,7 +46,7 @@ class Golf
   
   def hole6 n
     (1..n).map{|i|
-      s = "#{'fi' if i % 3 == 0}#{'bu' if i % 5 == 0}zz"
+      s = "#{'fizz' if i % 3 == 0}#{'buzz' if i % 5 == 0}"
       s == '' ? i : s
     }
   end
@@ -73,6 +73,6 @@ class Golf
       bc ? e << bc :(return tc)
     }
   end
-
+  end
 end
 
