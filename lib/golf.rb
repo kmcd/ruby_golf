@@ -37,9 +37,7 @@ class Golf
       end
       ranges << (int..int) unless found
     end
-    ranges.map do |range|
-      range.begin == range.end ? range.begin.to_s : "#{range.begin}-#{range.end}"
-    end
+    ranges.map {|range|range.begin == range.end ? range.begin.to_s : "#{range.begin}-#{range.end}"}
   end
   
   def self.hole6(n)
