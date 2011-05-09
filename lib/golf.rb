@@ -1,5 +1,4 @@
 class Golf
-
   def self.hole2 s
     s.split(' ').sort { |a,b| a[1] <=> b[1] }.join ' '
   end
@@ -34,4 +33,19 @@ class Golf
     end
   end
   
+  def self.hole6(n)
+    (1..n).map{|i|
+      f = i % 3 == 0
+      b = i % 5 == 0
+      if f && b
+        'fizzbuzz'
+      elsif f
+        'fizz'
+      elsif b
+        'buzz'
+      else
+        i
+      end
+    }
+  end
 end
