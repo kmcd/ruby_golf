@@ -3,10 +3,11 @@ class Golf
     def hole1 a
       a.reduce 1,:*
     end
+    
     def hole2 s
       s.split(' ').sort_by { |a| a[1] }.join ' '
     end
-
+    
     def hole3 n
       (1..n).inject :*
     end
@@ -18,18 +19,18 @@ class Golf
     end
   
     def hole4 a
-      a.map do |e|
+      a.map { |e|
         case e
           when /man\((\w+)\)/   : "hat(man(#{$1}))"
           when /dog\((\w+)\)/   : "dog(#{$1}(bone))"
           when /cat\((\w+)\)/   : "dead(#{$1})"
         end
-      end
+      }
     end
     
     def hole7(ints)
       ranges = []
-      ints.each do |int|
+      ints.each { |int|
         found = false
         ranges = ranges.map do |range|
           if int == range.begin - 1
@@ -43,12 +44,11 @@ class Golf
           end
         end
         ranges << (int..int) unless found
-      end
-      ranges.map do |range|
+      }
+      ranges.map { |range|
         range.begin == range.end ? range.begin.to_s : "#{range.begin}-#{range.end}"
-      end
+      }
     end
-    
     
     def hole6 n
       (1..n).map{|i|
