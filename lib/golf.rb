@@ -2,6 +2,7 @@ class Golf
   def self.hole1 a
     a.reduce 1,:*
   end
+  
   def self.hole2 s
     s.split(' ').sort_by { |a| a[1] }.join ' '
   end
@@ -18,6 +19,12 @@ class Golf
         when /cat\((\w+)\)/   : "dead(#{$1})"
       end
     end
+  end
+  
+  def self.hole5(b)
+    (1..b.length).map {|n|
+      b.combination(n).to_a.reject {|s| !b.join(",").include?(s.join(","))}
+    }.flatten(1)
   end
   
   def self.hole7(ints)
