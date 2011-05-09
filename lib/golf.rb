@@ -46,9 +46,9 @@ class Golf
     end
   end
   
-  def self.hole6(n)
+  def self.hole6 n
     (1..n).map{|i|
-      s = "#{'fizz' if i % 3 == 0}#{'buzz' if i % 5 == 0}"
+      s = "#{'fi' if i % 3 == 0}#{'bu' if i % 5 == 0}zz"
       s == '' ? i : s
     }
   end
