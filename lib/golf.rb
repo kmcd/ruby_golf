@@ -50,6 +50,5 @@ class Golf
         i
       end
     }
->>>>>>> 1d41565728e036631dc7da86ae06bc2653be148b
   end
 end
