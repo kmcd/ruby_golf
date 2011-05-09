@@ -38,8 +38,8 @@ class Golf
           end
         end
         ranges << (int..int) unless found
-      end
-      ranges.map do |range|
+      }
+      ranges.map { |range|
         range.begin == range.end ? range.begin.to_s : "#{range.begin}-#{range.end}"
       }
     end
