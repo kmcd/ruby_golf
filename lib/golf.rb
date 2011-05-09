@@ -37,15 +37,8 @@ class Golf
     (1..n).map{|i|
       f = i % 3 == 0
       b = i % 5 == 0
-      if f && b
-        'fizzbuzz'
-      elsif f
-        'fizz'
-      elsif b
-        'buzz'
-      else
-        i
-      end
+      s = (f ? 'fizz' : '') + (b ? 'buzz' : '')
+      s == '' ? i : s
     }
   end
 end
