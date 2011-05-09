@@ -20,29 +20,26 @@ class Golf
         end
       end
     end
-    
-    def hole7(ints)
-      ranges = []
-      ints.each do |int|
-        found = false
-        ranges = ranges.map do |range|
-          if int == range.begin - 1
-            found = true
-            (range.begin - 1)..(range.end)
-          elsif int == range.end + 1
-            found = true
-            (range.begin)..(range.end + 1)
+  
+  def hole7(l)
+    r = []
+      l.each do |i|
+        f = false
+        r = r.map do |s|
+          if i == s[0] - 1
+            f = true
+            [s[0] - 1, s[-1]]
+          elsif i == s[-1] + 1
+            f = true
+            [s[0], s[-1] + 1]
           else
-            range
+            s
           end
         end
-        ranges << (int..int) unless found
+        r << [i] unless f
       end
-      ranges.map do |range|
-        range.begin == range.end ? range.begin.to_s : "#{range.begin}-#{range.end}"
-      end
+      r.map {|s|s.size == 1 ? s[0].to_s : "#{s[0]}-#{s[-1]}"}
     end
-    
   
   def hole6 n
     (1..n).map{|i|
