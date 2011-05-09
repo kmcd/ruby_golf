@@ -50,27 +50,19 @@ class Golf
     }
   end
   
-  def self.hole9(path)
-    rows = File.readlines(path)
-    num_voters = rows.length
-    eliminated = []
-    loop do
-      votes = Hash.new(0)
-      rows.each do |row|
-        ranks = row.gsub(/ |\n/, "").split(",")
-        votes[(ranks - eliminated).first] += 1
-      end
-      top_candidate       = votes.to_a.sort_by {|a| a.last}.reverse.first.first
-      top_candidate_votes = votes.to_a.sort_by {|a| a.last}.reverse.first.last
-      bottom_candidate    = votes.to_a.sort_by {|a| a.last}.first.first
-      if top_candidate_votes > num_voters / 2
-        return top_candidate
-      elsif bottom_candidate == nil
-        return top_candidate
-      else
-        eliminated << bottom_candidate
-      end
-    end
+  def self.hole9(f)
+    r = File.readlines(f)
+    e = []
+    loop {
+      v = Hash.new(0)
+      r.each {|s| v[(s.gsub(/ |\n/, "").split(",") - e)[0]] += 1}
+      x = v.sort_by(&:last)
+      tc       = x[-1][0]
+      tcv = x[-1][-1]
+      bc    = x[0][0]
+      return tc if tcv > r.length / 2
+      bc ? e << bc :(return tc)
+    }
   end
 end
 
