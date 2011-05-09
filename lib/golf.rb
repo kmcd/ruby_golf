@@ -2,6 +2,7 @@ class Golf
   def self.hole1 a
     a.reduce(1,:*)
   end
+  
   def self.hole2 s
     s.split(' ').sort { |a,b| a[1] <=> b[1] }.join ' '
   end
@@ -50,5 +51,15 @@ class Golf
         i
       end
     }
+  end
+  
+  def self.hole9(path)
+    rows = File.readlines(path)
+    votes = Hash.new(0)
+    rows.each do |row|
+      first_preference = row.split(",").first.strip
+      votes[first_preference] += 1
+    end
+    votes.to_a.sort_by {|a| a.last}.reverse.first.first
   end
 end
