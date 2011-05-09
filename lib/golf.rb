@@ -11,6 +11,16 @@ class Golf
     n == 1 ? 1 : n*hole3(n-1)
   end
   
+  def self.hole4(array)
+    array.map do |element|
+      case element
+        when /man\((\w+)\)/   : "hat(man(#{$1}))"
+        when /dog\((\w+)\)/   : "dog(#{$1}(bone))"
+        when /cat\((\w+)\)/   : "dead(#{$1})"
+      end
+    end
+  end
+  
   def self.hole7(ints)
     ranges = []
     ints.each do |int|
