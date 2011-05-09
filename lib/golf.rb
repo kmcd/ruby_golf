@@ -7,9 +7,9 @@ class Golf
     n == 1 ? 1 : n*hole3(n-1)
   end
   
-  def self.hole4(array)
-    array.map do |element|
-      case element
+  def self.hole4(a)
+    a.map do |e|
+      case e
         when /man\((\w+)\)/   : "hat(man(#{$1}))"
         when /dog\((\w+)\)/   : "dog(#{$1}(bone))"
         when /cat\((\w+)\)/   : "dead(#{$1})"
