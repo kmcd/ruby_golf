@@ -43,35 +43,36 @@ class Golf
       end
     end
     
-    def hole6(n)
-      (1..n).map{|i|
-        s = "#{'fizz' if i % 3 == 0}#{'buzz' if i % 5 == 0}"
-        s == '' ? i : s
-      }
-    end
-    
-    def hole8 n
-      l = [1, 1]
-      3.upto(n) { |i|
-        l << l[i - 2] + l[i - 3]
-      }
-      l
-    end
-    
-    def hole9(f)
-      r = File.readlines(f)
-      e = []
-      loop {
-        v = Hash.new(0)
-        r.each {|s| v[(s.gsub(/ |\n/, "").split(",") - e)[0]] += 1}
-        x = v.sort_by(&:last)
-        tc       = x[-1][0]
-        tcv = x[-1][-1]
-        bc    = x[0][0]
-        return tc if tcv > r.length / 2
-        bc ? e << bc :(return tc)
-      }
-    end
+  
+  def hole6 n
+    (1..n).map{|i|
+      s = "#{'fi' if i % 3 == 0}#{'bu' if i % 5 == 0}zz"
+      s == '' ? i : s
+    }
   end
+  
+  def hole8 n
+    l = [1, 1]
+    3.upto(n) { |i|
+      l << l[i - 2] + l[i - 3]
+    }
+    l
+  end
+  
+  def hole9(f)
+    r = File.readlines(f)
+    e = []
+    loop {
+      v = Hash.new(0)
+      r.each {|s| v[(s.gsub(/ |\n/, "").split(",") - e)[0]] += 1}
+      x = v.sort_by(&:last)
+      tc       = x[-1][0]
+      tcv = x[-1][-1]
+      bc    = x[0][0]
+      return tc if tcv > r.length / 2
+      bc ? e << bc :(return tc)
+    }
+  end
+
 end
 
